@@ -5,9 +5,40 @@ import (
 
  "github.com/chuks/BOTGO/keyboards"
  "github.com/chuks/BOTGO/repositories"
+ "github.com/chuks/BOTGO/database"
 
  tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+ 	"gorm.io/gorm"
+
 )
+var DB *gorm.DB = database.Init()
+// Services for handling tasks in the Telegram bot
+// This file contains functions to start the bot, set tasks, delete tasks, and show all tasks.
+// It uses the tgbotapi package for Telegram Bot API interactions and repositories for database operations.
+// Start initializes the bot and sends a welcome message to the user.
+// It also sets up the command keyboard for user interaction.
+// SetTask prompts the user to write a todo item.
+// SetTaskCallback handles the callback from the user after they set a task.
+// DeleteTask prompts the user to select a todo item to delete.
+// DeleteTaskCallback handles the callback from the user after they select a task to delete.
+// ShowAllTasks retrieves and displays all tasks for the user.
+// It uses the repositories package to interact with the database for task management.
+// It is important to handle errors properly and send appropriate messages to the user in case of any issues.
+// It is also important to ensure that the bot is running and connected to the Telegram API.
+// It is recommended to use proper logging instead of panic for error handling in production code.
+// It is also recommended to use context for better control over the bot's lifecycle and to avoid blocking operations.
+// Start initializes the bot and sends a welcome message to the user.
+// It also sets up the command keyboard for user interaction.
+
+// It is the entry point for the bot and should be called when the bot starts.
+// It uses the tgbotapi package for Telegram Bot API interactions and keyboards for command keyboard setup.
+
+// It is important to handle errors properly and send appropriate messages to the user in case of any issues.
+// It is also important to ensure that the bot is running and connected to the Telegram API.
+// It is recommended to use proper logging instead of panic for error handling in production code.
+// It is also recommended to use context for better control over the bot's lifecycle and to avoid blocking operations.		
+
+
 
 func Start(bot *tgbotapi.BotAPI, update tgbotapi.Update) {
  text := "Hi, here you can create todos for your todolist."

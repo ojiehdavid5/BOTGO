@@ -45,13 +45,13 @@ func Init() *gorm.DB {
     }
 
     // Drop and recreate the database
-    if err := DB.Exec("DROP DATABASE IF EXISTS todolist;").Error; err != nil {
-        log.Fatalf("failed to drop database: %v", err)
-    }
+    // if err := DB.Exec("DROP DATABASE IF EXISTS todolist;").Error; err != nil {
+    //     log.Fatalf("failed to drop database: %v", err)
+    // }
 
-    if err := DB.Exec("CREATE DATABASE todolist;").Error; err != nil {
-        log.Fatalf("failed to create database: %v", err)
-    }
+    // if err := DB.Exec("CREATE DATABASE todolist;").Error; err != nil {
+    //     log.Fatalf("failed to create database: %v", err)
+    // }
 
     // Update DSN for the newly created database
     dsn = fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s",
