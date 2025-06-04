@@ -14,6 +14,7 @@ func LoadConfig(key string) (string, error) {
         return "", fmt.Errorf("error loading .env file: %w", err)
     }
 
+    
     value, exists := os.LookupEnv(key)
     if !exists {
         return "", fmt.Errorf("environment variable %s does not exist", key)
